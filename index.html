@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Captura de Datos</title>
+  <!-- Tailwind CSS para diseño moderno y adaptable -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            purple: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+            },
+            pink: {
+              500: '#ec4899',
+              600: '#db2777',
+              700: '#be185d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 min-h-screen text-slate-800 py-8 px-4 sm:px-6 lg:px-8 font-sans">
+
+  <div class="max-w-3xl mx-auto">
+    <!-- Tarjeta del Formulario Principal -->
+    <div class="bg-white shadow-xl rounded-2xl p-6 sm:p-10 border border-purple-100 mb-8 transition-all">
+      <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-purple-100">
+        <div class="bg-gradient-to-r from-purple-600 to-pink-500 p-3 rounded-xl text-white shadow-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent">Captura de Datos</h2>
+          <p class="text-sm text-slate-500">Rellena el formulario con tus hábitos y estilo de vida</p>
+        </div>
+      </div>
+
+      <form id="formulario" class="space-y-5">
+        <input type="hidden" id="id">
+
+        <!-- Campo 1: Nombre -->
+        <div>
+          <label for="nombre" class="block text-sm font-semibold text-slate-700 mb-1">Nombre:</label>
+          <input type="text" id="nombre" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+        </div>
+
+        <!-- Campo 2: Edad -->
+        <div>
+          <label for="edad" class="block text-sm font-semibold text-slate-700 mb-1">Edad:</label>
+          <input type="number" id="edad" required min="1" max="120" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+        </div>
+
+        <!-- Campo 3: Horas de sueño -->
+        <div>
+          <label for="sueño" class="block text-sm font-semibold text-slate-700 mb-1">Horas de sueño:</label>
+          <select id="sueño" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Insuficientes">Insuficientes</option>
+            <option value="Adecuadas">Adecuadas</option>
+            <option value="Excesivas">Excesivas</option>
+          </select>
+        </div>
+
+        <!-- Campo 4: Ocupacion principal -->
+        <div>
+          <label for="ocupacion" class="block text-sm font-semibold text-slate-700 mb-1">Ocupacion principal:</label>
+          <select id="ocupacion" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Estudiante">Estudiante</option>
+            <option value="Empleado">Empleado</option>
+            <option value="Independiente">Independiente</option>
+            <option value="Buscando empleo">Buscando empleo</option>
+         </select>
+        </div>
+
+        <!-- Campo 5: Metodo principal de transporte -->
+        <div>
+          <label for="transporte" class="block text-sm font-semibold text-slate-700 mb-1">Metodo principal de transporte:</label>
+          <select id="transporte" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Automovil">Automovil</option>
+            <option value="Bicicleta">Bicicleta</option>
+            <option value="Autobus">Autobus</option>
+         </select>
+        </div>
+
+        <!-- Campo 6: Red social de mayor uso -->
+        <div>
+          <label for="red" class="block text-sm font-semibold text-slate-700 mb-1">Red social de mayor uso:</label>
+          <select id="red" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Youtube">Youtube</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Facebook">Facebook</option>
+         </select>
+        </div>
+
+        <!-- Campo 7: Frecuencia de ejercicio a la semana -->
+        <div>
+          <label for="ejercicio" class="block text-sm font-semibold text-slate-700 mb-1">Frecuencia de ejercicio a la semana:</label>
+          <select id="ejercicio" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Alta">Alta</option>
+            <option value="Media">Media</option>
+            <option value="Baja">Baja</option>
+            <option value="Nula">Nula</option>
+         </select>
+        </div>
+
+        <!-- Campo 8: Consumo de agua diario -->
+        <div>
+          <label for="agua" class="block text-sm font-semibold text-slate-700 mb-1">Consumo de agua diario:</label>
+          <select id="agua" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Suficiente">Suficiente</option>
+            <option value="Medio">Medio</option>
+            <option value="Bajo">Bajo</option>
+          </select>
+        </div>
+
+        <!-- Campo 9: Frecuencia de uso de pantallas -->
+        <div>
+          <label for="pantalla" class="block text-sm font-semibold text-slate-700 mb-1">Frecuencia de uso de pantallas:</label>
+          <select id="pantalla" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Poco">Poco</option>
+            <option value="Regular">Regular</option>
+            <option value="Mucho">Mucho</option>
+          </select>
+        </div>
+
+        <!-- Campo 10: Nivel de estres diario -->
+        <div>
+          <label for="estres" class="block text-sm font-semibold text-slate-700 mb-1">Nivel de estres diario:</label>
+          <select id="estres" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Bajo">Bajo</option>
+            <option value="Medio">Medio</option>
+            <option value="Alto">Alto</option>
+          </select>
+        </div>
+
+        <!-- Botones de Acción del Formulario -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+          <button type="button" id="btnRegistrar" class="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium py-2.5 px-4 rounded-xl shadow-md transition transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">Registrar</button>
+          <button type="button" id="btnConsultar" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-medium py-2.5 px-4 rounded-xl shadow-md transition transform active:scale-95">Consultar</button>
+          <button type="button" id="btnModificar" class="w-full bg-slate-700 hover:bg-slate-800 text-white font-medium py-2.5 px-4 rounded-xl shadow-md transition transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">Modificar</button>
+          <button type="button" id="btnEliminar" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-medium py-2.5 px-4 rounded-xl shadow-md transition transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">Eliminar</button>
+        </div>
+      </form>
+
+      <!-- Estado del proceso -->
+      <p id="estado" class="mt-4 text-center font-medium text-purple-600 min-h-[24px]"></p>
+    </div>
+
+    <!-- Sección de Tabla de Registros (Oculta por defecto) -->
+    <div id="seccionTabla" class="bg-white shadow-xl rounded-2xl p-6 sm:p-10 border border-purple-100 hidden">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-purple-100">
+        <div>
+          <h2 class="text-2xl font-bold bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent">Registros</h2>
+          <p class="text-sm text-slate-500">Consulta y administra la información guardada</p>
+        </div>
+        <button type="button" id="btnCerrar" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium py-2 px-4 rounded-xl transition text-sm">Cerrar tabla</button>
+      </div>
+
+      <!-- Buscador -->
+      <div class="mb-6">
+        <input type="text" id="buscador" placeholder="Buscar por nombre..." class="w-full sm:w-80 px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm bg-slate-50/50">
+      </div>
+
+      <!-- Tabla Responsive -->
+      <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+        <table class="w-full text-left border-collapse bg-white text-sm">
+          <thead>
+            <tr class="bg-purple-100/70 text-purple-900 uppercase font-semibold text-xs tracking-wider">
+              <th class="p-3 border-b border-purple-200">Fecha</th>
+              <th class="p-3 border-b border-purple-200">Nombre</th>
+              <th class="p-3 border-b border-purple-200">Edad</th>
+              <th class="p-3 border-b border-purple-200">Horas de sueño</th>
+              <th class="p-3 border-b border-purple-200">Ocupacion principal</th>
+              <th class="p-3 border-b border-purple-200">Metodo principal de transporte</th>
+              <th class="p-3 border-b border-purple-200">Red social de mayor uso</th>
+              <th class="p-3 border-b border-purple-200">Frecuencia de ejercicio a la semana</th>
+              <th class="p-3 border-b border-purple-200">Consumo de agua diario</th>
+              <th class="p-3 border-b border-purple-200">Horas frente pantallas al dia</th>
+              <th class="p-3 border-b border-purple-200">Nivel de estres diario</th>
+              <th class="p-3 border-b border-purple-200 text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla" class="divide-y divide-slate-100 text-slate-700"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var URL_SCRIPT = "https://script.google.com/macros/s/AKfycbyQrz1V328KSDcED0i-FWNP4vDE51UUdzAo1MnCxGpqc-TA3GOJcMa6VpNhuQeGs_qDeQ/exec";
+    var registros = [];
+    var tablaVisible = false;
+
+    // ---------- Enviar datos al script ----------
+    function enviar(datos) {
+      return fetch(URL_SCRIPT, {
+        method: "POST",
+        body: new URLSearchParams(datos)
+      }).then(function (r) { return r.json(); });
+    }
+
+    // ---------- Botones activos según el estado ----------
+    function actualizarBotones() {
+      var hayRegistro = document.getElementById("id").value !== "";
+      document.getElementById("btnRegistrar").disabled = hayRegistro;
+      document.getElementById("btnModificar").disabled = !hayRegistro;
+      document.getElementById("btnEliminar").disabled = !hayRegistro;
+    }
+
+    function limpiarFormulario() {
+      document.getElementById("formulario").reset();
+      document.getElementById("id").value = "";
+      actualizarBotones();
+    }
+
+    // ---------- REGISTRAR ----------
+    document.getElementById("btnRegistrar").onclick = function () {
+      if (!document.getElementById("formulario").reportValidity()) return;
+
+      document.getElementById("estado").textContent = "Guardando...";
+      enviar({
+        accion: "guardar",
+        nombre: document.getElementById("nombre").value,
+        edad: document.getElementById("edad").value,
+        sueño: document.getElementById("sueño").value,
+        ocupacion: document.getElementById("ocupacion").value,
+        transporte: document.getElementById("transporte").value,
+        red: document.getElementById("red").value,
+        ejercicio: document.getElementById("ejercicio").value,
+        agua: document.getElementById("agua").value,
+        pantalla: document.getElementById("pantalla").value,
+        estres: document.getElementById("estres").value
+      }).then(function (respuesta) {
+        terminarAccion(respuesta, "¡Registro guardado!");
+      });
+    };
+
+    // ---------- CONSULTAR ----------
+    document.getElementById("btnConsultar").onclick = function () {
+      document.getElementById("estado").textContent = "Consultando...";
+      tablaVisible = true;
+      document.getElementById("seccionTabla").style.display = "block";
+      cargarRegistros(function () {
+        document.getElementById("estado").textContent = "";
+      });
+    };
+
+    function cargarRegistros(alTerminar) {
+      fetch(URL_SCRIPT)
+        .then(function (r) { return r.json(); })
+        .then(function (datos) {
+          registros = datos;
+          mostrarTabla();
+          if (alTerminar) alTerminar();
+        });
+    }
+
+    function mostrarTabla() {
+      var filtro = document.getElementById("buscador").value.trim().toLowerCase();
+      var tabla = document.getElementById("tabla");
+      tabla.innerHTML = "";
+
+      registros.forEach(function (reg) {
+        if (!reg.nombre.toString().toLowerCase().startsWith(filtro)) return;
+
+        var tr = document.createElement("tr");
+        tr.className = "hover:bg-purple-50/50 transition";
+        
+        agregarCelda(tr, new Date(reg.fecha).toLocaleString());
+        agregarCelda(tr, reg.nombre);
+        agregarCelda(tr, reg.edad);
+        agregarCelda(tr, reg.sueño);
+        agregarCelda(tr, reg.ocupacion);
+        agregarCelda(tr, reg.transporte);
+        agregarCelda(tr, reg.red);
+        agregarCelda(tr, reg.ejercicio);
+        agregarCelda(tr, reg.agua);
+        agregarCelda(tr, reg.pantalla);
+        agregarCelda(tr, reg.estres);
+
+        var td = document.createElement("td");
+        td.className = "p-3 border-b border-slate-100 flex gap-2 justify-center";
+
+        var btnModificarFila = document.createElement("button");
+        btnModificarFila.textContent = "Modificar";
+        btnModificarFila.className = "bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-lg text-xs font-medium transition shadow-sm";
+        btnModificarFila.onclick = function () { cargarEnFormulario(reg); };
+
+        var btnEliminarFila = document.createElement("button");
+        btnEliminarFila.textContent = "Eliminar";
+        btnEliminarFila.className = "bg-rose-500 hover:bg-rose-600 text-white px-3 py-1 rounded-lg text-xs font-medium transition shadow-sm";
+        btnEliminarFila.onclick = function () { eliminar(reg.id); };
+
+        td.appendChild(btnModificarFila);
+        td.appendChild(btnEliminarFila);
+        tr.appendChild(td);
+        tabla.appendChild(tr);
+      });
+    }
+
+    function agregarCelda(fila, texto) {
+      var td = document.createElement("td");
+      td.className = "p-3 border-b border-slate-100 whitespace-nowrap";
+      td.textContent = texto;
+      fila.appendChild(td);
+    }
+
+    document.getElementById("buscador").oninput = mostrarTabla;
+
+    // ---------- CERRAR TABLA ----------
+    document.getElementById("btnCerrar").onclick = function () {
+      tablaVisible = false;
+      document.getElementById("seccionTabla").style.display = "none";
+      document.getElementById("buscador").value = "";
+      document.getElementById("tabla").innerHTML = "";
+    };
+
+    // ---------- Pasar el registro al formulario ----------
+    function cargarEnFormulario(reg) {
+      document.getElementById("id").value = reg.id;
+      document.getElementById("nombre").value = reg.nombre;
+      document.getElementById("edad").value = reg.edad;
+      document.getElementById("sueño").value = reg.sueño;
+      document.getElementById("ocupacion").value = reg.ocupacion;
+      document.getElementById("transporte").value = reg.transporte;
+      document.getElementById("red").value = reg.red;
+      document.getElementById("ejercicio").value = reg.ejercicio;
+      document.getElementById("agua").value = reg.agua;
+      document.getElementById("pantalla").value = reg.pantalla;
+      document.getElementById("estres").value = reg.estres;
+
+      document.getElementById("estado").textContent = "Modificando registro: cambia los datos y presiona Modificar";
+      actualizarBotones();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById("nombre").focus();
+    }
+
+    // ---------- MODIFICAR ----------
+    document.getElementById("btnModificar").onclick = function () {
+      var id = document.getElementById("id").value;
+
+      if (id === "") {
+        alert("Primero elige un registro con el botón 'Modificar'");
+        return;
+      }
+      if (!document.getElementById("formulario").reportValidity()) return;
+
+      document.getElementById("estado").textContent = "Modificando...";
+      enviar({
+        accion: "editar",
+        id: id,
+        nombre: document.getElementById("nombre").value,
+        edad: document.getElementById("edad").value,
+        sueño: document.getElementById("sueño").value,
+        ocupacion: document.getElementById("ocupacion").value,
+        transporte: document.getElementById("transporte").value,
+        red: document.getElementById("red").value,
+        ejercicio: document.getElementById("ejercicio").value,
+        agua: document.getElementById("agua").value,
+        pantalla: document.getElementById("pantalla").value,
+        estres: document.getElementById("estres").value
+      }).then(function (respuesta) {
+        terminarAccion(respuesta, "¡Registro modificado!");
+      });
+    };
+
+    // ---------- ELIMINAR ----------
+    document.getElementById("btnEliminar").onclick = function () {
+      eliminar(document.getElementById("id").value);
+    };
+
+    function eliminar(id) {
+      if (!confirm("¿Seguro que quieres eliminar este registro?")) return;
+
+      document.getElementById("estado").textContent = "Eliminando...";
+      enviar({ accion: "eliminar", id: id }).then(function (respuesta) {
+        terminarAccion(respuesta, "Registro eliminado");
+      });
+    }
+
+    // ---------- Mensaje al terminar cualquier acción ----------
+    function terminarAccion(respuesta, mensajeOk) {
+      document.getElementById("estado").textContent =
+        respuesta.ok ? mensajeOk : "Error: " + respuesta.mensaje;
+      limpiarFormulario();
+      if (tablaVisible) cargarRegistros();
+    }
+
+    actualizarBotones();
+  </script>
+
+</body>
+</html>
